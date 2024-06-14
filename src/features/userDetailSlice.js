@@ -102,58 +102,57 @@ export const userDetail = createSlice({
     },
   },
 
-  extraReducers: {
-    [createUser.pending]: (state) => {
-      state.loading = true;
-    },
-    [createUser.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.users.push(action.payload);
-    },
-    [createUser.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.payload.message;
-    },
-    [showUser.pending]: (state) => {
-      state.loading = true;
-    },
-    [showUser.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.users = action.payload;
-    },
-    [showUser.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
-
-    [deleteUser.pending]: (state) => {
-      state.loading = true;
-    },
-    [deleteUser.fulfilled]: (state, action) => {
-      state.loading = false;
-      const { id } = action.payload;
-      if (id) {
-        state.users = state.users.filter((ele) => ele.id !== id);
-      }
-    },
-    [deleteUser.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
-
-    [updateUser.pending]: (state) => {
-      state.loading = true;
-    },
-    [updateUser.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.users = state.users.map((ele) =>
-        ele.id === action.payload.id ? action.payload : ele
-      );
-    },
-    [updateUser.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.payload.message;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(createUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(createUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users.push(action.payload);
+      })
+      .addCase(createUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
+      })
+      .addCase(showUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(showUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users = action.payload;
+      })
+      .addCase(showUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteUser.fulfilled, (state, action) => {
+        state.loading = false;
+        const { id } = action.payload;
+        if (id) {
+          state.users = state.users.filter((ele) => ele.id !== id);
+        }
+      })
+      .addCase(deleteUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users = state.users.map((ele) =>
+          ele.id === action.payload.id ? action.payload : ele
+        );
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
+      });
   },
 });
 
