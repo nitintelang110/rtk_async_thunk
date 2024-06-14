@@ -17,10 +17,10 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid ">
-          <h4 className="navbar-brand">RTK</h4>
+          <h4 className="navbar-brand">Ntcoder</h4>
 
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <div className="collapse navbar-collapse mx-5">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-5">
               <li className="nav-item">
                 <Link to="/" className="nav-link">
                   Create Post

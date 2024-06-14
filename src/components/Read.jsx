@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteUser, showUser } from "../features/userDetailSlice";
 import CustomModal from "./CustomModal";
+import "./CustomModal.css";
 
 const Read = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const Read = () => {
       )}
       <h2>All data</h2>
       <input
-        class="form-check-input"
+        class="form-check-input mx-2"
         name="gender"
         checked={radioData === ""}
         type="radio"
@@ -42,7 +43,7 @@ const Read = () => {
       />
       <label class="form-check-label">All</label>
       <input
-        class="form-check-input"
+        class="form-check-input mx-2"
         name="gender"
         checked={radioData === "Male"}
         value="Male"
@@ -51,7 +52,7 @@ const Read = () => {
       />
       <label class="form-check-label">Male</label>
       <input
-        class="form-check-input"
+        class="form-check-input mx-2"
         name="gender"
         value="Female"
         checked={radioData === "Female"}
@@ -60,7 +61,7 @@ const Read = () => {
       />
       <label class="form-check-label">Female</label>
 
-      <div>
+      <div className="w-75 mx-auto" id="box-layout">
         {users &&
           users
             .filter((ele) => {
@@ -81,23 +82,23 @@ const Read = () => {
             })
 
             .map((ele) => (
-              <div key={ele.id} className="card w-50 mx-auto my-2">
+              <div key={ele.id} className="card w-100 mx-auto shadow">
                 <div className="card-body">
                   <h5 className="card-title">{ele.name}</h5>
                   <h6 className="card-subtitle mb-2 text-muted">{ele.email}</h6>
                   <p className="card-text">{ele.gender}</p>
-                  <button
-                    className="card-link"
+                  <Link
+                    className="card-link btn-sm btn-success text-decoration-none "
                     onClick={() => [setId(ele.id), setShowPopup(true)]}
                   >
                     View
-                  </button>
-                  <Link to={`/edit/${ele.id}`} className="card-link">
+                  </Link>
+                  <Link to={`/edit/${ele.id}`} className="card-link btn-sm btn-warning text-decoration-none">
                     Edit
                   </Link>
                   <Link
                     onClick={() => dispatch(deleteUser(ele.id))}
-                    className="card-link"
+                    className="card-link btn-sm btn-danger text-decoration-none"
                   >
                     Delete
                   </Link>

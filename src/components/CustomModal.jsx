@@ -11,7 +11,7 @@ const CustomModal = ({ id, setShowPopup }) => {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-        <button onClick={() => setShowPopup(false)}>Close</button>
+        <button onClick={() => setShowPopup(false)} className="btn-sm btn-primary d-flex">X</button>
         <h2>{singleUser[0].name}</h2>
         <h3>{singleUser[0].email}</h3>
         <h4>{singleUser[0].age}</h4>

@@ -24,9 +24,9 @@ const Create = () => {
   return (
     <div>
       <h2 className="my-2">Fill the data</h2>
-      <form className="w-50 mx-auto my-5" onSubmit={handleSubmit}>
+      <form className="w-25 mx-auto my-5 bg-white shadow p-5" onSubmit={handleSubmit}>
         <div class="mb-3">
-          <label class="form-label">Name</label>
+          <label class="form-label d-flex">Name</label>
           <input
             type="text"
             name="name"
@@ -36,7 +36,7 @@ const Create = () => {
           />
         </div>
         <div class="mb-3">
-          <label class="form-label">Email</label>
+          <label class="form-label d-flex">Email</label>
           <input
             type="email"
             name="email"
@@ -46,7 +46,7 @@ const Create = () => {
           />
         </div>
         <div class="mb-3">
-          <label class="form-label">Age</label>
+          <label class="form-label d-flex">Age</label>
           <input
             type="text"
             name="age"
@@ -55,7 +55,8 @@ const Create = () => {
             required
           />
         </div>
-        <div class="mb-3">
+        <div class="mb-3 d-flex">
+        <label class="form-label d-flex">Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <input
             class="form-check-input"
             name="gender"
@@ -64,11 +65,10 @@ const Create = () => {
             onChange={getUserData}
             required
           />
-          <label class="form-check-label">Male</label>
-        </div>
-        <div class="mb-3">
+          <label class="form-check-label mx-2">Male</label>
+
           <input
-            class="form-check-input"
+            class="form-check-input mx-2"
             name="gender"
             value="Female"
             type="radio"
@@ -76,6 +76,9 @@ const Create = () => {
           />
           <label class="form-check-label">Female</label>
         </div>
+       
+       
+       
 
         <button type="submit" class="btn btn-primary">
           Submit

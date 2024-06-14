@@ -34,9 +34,9 @@ const Update = () => {
   return (
     <div>
       <h2 className="my-2">Edit the data</h2>
-      <form className="w-50 mx-auto my-5" onSubmit={handleUpdate}>
+      <form className="w-25 mx-auto my-5 bg-white shadow p-5" onSubmit={handleUpdate}>
         <div class="mb-3">
-          <label class="form-label">Name</label>
+          <label class="form-label d-flex">Name</label>
           <input
             type="text"
             name="name"
@@ -46,7 +46,7 @@ const Update = () => {
           />
         </div>
         <div class="mb-3">
-          <label class="form-label">Email</label>
+          <label class="form-label d-flex">Email</label>
           <input
             type="email"
             name="email"
@@ -56,7 +56,7 @@ const Update = () => {
           />
         </div>
         <div class="mb-3">
-          <label class="form-label">Age</label>
+          <label class="form-label d-flex">Age</label>
           <input
             type="text"
             name="age"
@@ -65,9 +65,10 @@ const Update = () => {
             onChange={newData}
           />
         </div>
-        <div class="mb-3">
+        <div class="mb-3 d-flex">
+        <label class="form-label d-flex">Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <input
-            class="form-check-input"
+            class="form-check-input mx-2"
             name="gender"
             value="Male"
             type="radio"
@@ -75,10 +76,9 @@ const Update = () => {
             onChange={newData}
           />
           <label class="form-check-label">Male</label>
-        </div>
-        <div class="mb-3">
+
           <input
-            class="form-check-input"
+            class="form-check-input mx-2"
             name="gender"
             value="Female"
             type="radio"
@@ -87,6 +87,7 @@ const Update = () => {
           />
           <label class="form-check-label">Female</label>
         </div>
+        
 
         <button type="submit" class="btn btn-primary">
           Submit
